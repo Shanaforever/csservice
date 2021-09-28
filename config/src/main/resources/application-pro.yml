@@ -1,0 +1,55 @@
+###这个yml文件存放项目环境相关配置（无业务）
+
+################################开发环境################################
+spring:
+  profiles: dev
+  mvc:
+    view:
+      prefix: /
+      suffix: .jsp
+  thymeleaf:
+    enabled: false
+    cache: false
+    check-template-location: false
+web:
+  port: 8088
+  logging:
+     path: /data/logs
+  auth:
+    username: c8admin
+    password: c8admin
+
+#定时任务配置
+task:
+  #每周日上午3点刷新缓存
+  cron: 0 0 3 ? * SUN
+##加密配置
+
+#web工程配置
+#jasypt:
+#  encryptor:
+#    password: centric
+#    algorithm: PBEWithMD5AndDES
+#    property:
+#      prefix: centric(
+#      suffix: )
+
+
+
+---
+################################测试环境################################
+spring:
+  profiles: test
+web:
+  port: 8088
+  logging:
+    path: D:/plmserviceDemo/logs
+
+---
+################################正试环境################################
+spring:
+  profiles: prod
+web:
+  port: 8089
+  logging:
+    path: D:/plmserviceDemo/logs

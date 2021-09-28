@@ -1,0 +1,38 @@
+###这个yml文件存放rabbitmq相关配置（无业务）
+
+################################开发环境################################
+spring:
+  profiles: dev
+
+  rabbitmq:
+    host: 127.0.0.1
+    port: 5672
+    username: guest
+    password: guest
+    virtual-host: /
+
+---
+################################测试环境################################
+spring:
+  profiles: test
+
+  rabbitmq:
+    host: 127.0.0.1
+    port: 5672
+    username: guest
+    password: guest
+    virtual-host: /
+---
+################################正试环境################################
+spring:
+  profiles: prod
+
+  rabbitmq:
+    host: 127.0.0.1
+    port: 5672
+    username: guest
+    password: guest
+    virtual-host: /
+
+
+

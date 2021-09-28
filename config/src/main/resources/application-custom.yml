@@ -1,0 +1,39 @@
+﻿#######################自定义导出配置###################
+spring:
+  profiles: dev
+
+cs.center.prop:
+  #款式库导出
+  style:
+    url: http://127.0.0.1:8777/demo/hello
+    1.name: Node Name
+    1.value: Node Name
+    2:
+      name: Description
+      value: Description
+
+
+---
+spring:
+  profiles: test
+cs.center.prop:
+  #款式库导出
+  style:
+    url: http://127.0.0.1:8777/demo/hello
+    1.name: Node Name
+    1.value: Node Name
+    2:
+      name: Description
+      value: Description
+---
+spring:
+  profiles: prod
+cs.center.prop:
+  #款式库导出
+  style:
+    url: http://127.0.0.1:8777/demo/hello
+    1.name: Node Name
+    1.value: Node Name
+    2:
+      name: Description
+      value: Description

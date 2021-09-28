@@ -1,0 +1,21 @@
+###这个yml文件存放系统级别的相关配置
+spring:
+  application:
+    name: centricsoftware-core
+  http:
+    encoding:
+      charset: UTF-8
+
+  profiles:
+    active: @profileActive@
+    include: pro,redis,rabbitmq,mybatis,plm,center,custom,export
+server:
+  port: ${web.port}
+  tomcat:
+    uri-encoding: UTF-8
+  servlet:
+    context-path: /plmservice
+logging:
+  config: classpath:logback-spring.xml
+  file:
+    path: ${web.logging.path}

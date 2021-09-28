@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>com.centricsoftware</groupId>
+		<artifactId>plmservice</artifactId>
+		<version>0.0.1-SNAPSHOT</version>
+		<relativePath>../pom.xml</relativePath>
+	</parent>
+
+	<artifactId>config</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<name>config</name>
+	<description>Demo project for Spring Boot</description>
+
+	<properties>
+		<java.version>1.8</java.version>
+		<jasypt.version>3.0.2</jasypt.version>
+	</properties>
+
+	<dependencies>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter</artifactId>
+			<scope>provided</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-configuration-processor</artifactId>
+			<optional>true</optional>
+		</dependency>
+		<dependency>
+			<groupId>org.projectlombok</groupId>
+			<artifactId>lombok</artifactId>
+			<optional>true</optional>
+		</dependency>
+		<!--hutool集成工具包-->
+		<dependency>
+			<groupId>cn.hutool</groupId>
+			<artifactId>hutool-all</artifactId>
+		</dependency>
+<!--		<dependency>-->
+<!--			<groupId>com.github.ulisesbocchio</groupId>-->
+<!--			<artifactId>jasypt-spring-boot-starter</artifactId>-->
+<!--			<version>${jasypt.version}</version>-->
+<!--		</dependency>-->
+		<dependency>
+			<groupId>com.google.guava</groupId>
+			<artifactId>guava</artifactId>
+		</dependency>
+	</dependencies>
+
+	<build>
+		<resources>
+			<resource>
+				<directory>src/main/java</directory>
+				<includes>
+					<include>**/*.xml</include>
+				</includes>
+				<!-- true 打包时候变量替换 -->
+				<filtering>true</filtering>
+			</resource>
+			<resource>
+				<directory>src/main/resources</directory>
+<!--				<excludes>-->
+<!--					<exclude>**/*.yml</exclude>-->
+<!--				</excludes>-->
+				<includes>
+					<include>**/*.yml</include>
+					<include>logback-spring.xml</include>
+				</includes>
+				<filtering>true</filtering>
+			</resource>
+<!--			<resource>-->
+<!--			<directory>src/main/resources</directory>-->
+<!--			<includes>-->
+<!--				<include>application-pro.yml</include>-->
+<!--				<include>application-redis.yml</include>-->
+<!--				<include>application-rabbitmq.yml</include>-->
+<!--				<include>application-mybatis.yml</include>-->
+<!--				<include>application-plm.yml</include>-->
+<!--				<include>application-center.yml</include>-->
+<!--				<include>application-custom.yml</include>-->
+<!--				<include>logback-spring.xml</include>-->
+<!--			</includes>-->
+<!--				<filtering>true</filtering>-->
+<!--			</resource>-->
+		</resources>
+
+	</build>
+
+</project>

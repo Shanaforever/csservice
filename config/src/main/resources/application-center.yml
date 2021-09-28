@@ -1,0 +1,48 @@
+﻿#######################导出配置中心##################
+spring:
+  profiles: dev
+
+cs.center.prop:
+  #颜色库导出
+  colorspec:
+    url: http://127.0.0.1:8777/demo/hello
+    count: 50
+    1:
+      name: Code
+      value: Code
+    2:
+      name: nodeName
+      value: Description
+
+
+
+
+---
+spring:
+  profiles: test
+cs.center.prop:
+  #颜色库导出
+  colorspec:
+    url: http://127.0.0.1:8777/demo/hello
+    count: 50
+    1:
+      name: Code
+      value: Code
+    2:
+      name: Description
+      value: Description
+---
+spring:
+  profiles: prod
+cs.center.prop:
+  #颜色库导出
+  colorspec:
+    url: http://127.0.0.1:8777/demo/hello
+    count: 50
+    1:
+      name: Code
+      value: Code
+    2:
+      name: Description
+      value: Description
+

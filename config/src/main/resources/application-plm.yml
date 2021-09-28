@@ -1,0 +1,125 @@
+﻿#######################Centric8服务器地址###################
+spring:
+  profiles: dev
+cs:
+  plm:
+    #是否自动登陆，默认自动登陆，只有当值不为true或者不为空时不自动登陆
+    auto-login: false
+    serverhost: 120.55.59.167:8080
+    rest:
+      host: 120.55.59.167:8080/csi-requesthandler/api/v2/
+    #######Centric8服务器登陆用户名/密码
+###密码加密代码在com.centricsoftware.core.JavaTest中
+    user: Administrator
+    #c8admin
+#    pwd: centric(bvXcDZBCR1rgv6yr5T8Kn7KnKd4/C4d3)
+    pwd: centric8
+    dbhost: 192.168.30.144:1433
+    dbuser: csidba
+    dbpwd: csidba
+    dbname: C8
+#    dbtype: Oracle
+  ##数据库链接 用于DBUtil
+    pq:
+      dbuser: csidba
+      dbpwd: csidba
+      dbtype: Oracle
+      dbhost: localhost
+      dbname: C8REPORT
+    mail:
+      host: testmailhost
+      sender: administrator
+      senderName: administrator
+      senderPwd: 123456
+
+    hse:
+      host: localhost
+      portNumber: 9200
+      proto: http
+#定时任务配置
+task:
+  #晚上12点，中午12点执行登陆
+  cron: 0 0 0,12 * * ?
+  test: 0/5 * * * * ?
+---
+spring:
+  profiles: test
+cs:
+  plm:
+    #是否自动登陆，默认自动登陆，只有当值不为true或者不为空时不自动登陆
+    auto-login: false
+    serverhost: 192.168.1.144
+    #######Centric8服务器登陆用户名/密码
+    ###密码加密代码在com.centricsoftware.core.JavaTest中
+    user: Administrator
+    #c8admin
+#    pwd: centric(bvXcDZBCR1rgv6yr5T8Kn7KnKd4/C4d3)
+    pwd: c8admin
+    dbhost: 192.168.1.144
+    dbuser: csidba
+    #csidba
+    dbpwd: csidba
+    dbname: C8
+    #    dbtype: Oracle
+    ##数据库链接 用于DBUtil
+    pq:
+      dbuser: csidba
+      dbpwd: csidba
+      dbtype: Oracle
+      dbhost: localhost
+      dbname: C8REPORT
+    mail:
+      host: testmailhost
+      sender: administrator
+      senderName: administrator
+      senderPwd: 123456
+
+    hse:
+      host: localhost
+      portNumber: 9200
+      proto: http
+#定时任务配置
+task:
+  #晚上12点，中午12点执行登陆
+  cron: 0 0 0,12 * * ?
+---
+spring:
+  profiles: prod
+cs:
+  plm:
+    #是否自动登陆，默认自动登陆，只有当值不为true或者不为空时不自动登陆
+    auto-login: false
+    serverhost: 192.168.1.144
+    #######Centric8服务器登陆用户名/密码
+    ###密码加密代码在com.centricsoftware.core.JavaTest中
+    user: Administrator
+    #c8admin
+#    pwd: centric(bvXcDZBCR1rgv6yr5T8Kn7KnKd4/C4d3)
+    pwd: c8admin
+    dbhost: 192.168.1.144
+    dbuser: csidba
+    #csidba
+    dbpwd: csidba
+    dbname: C8
+    #    dbtype: Oracle
+    ##数据库链接 用于DBUtil
+    pq:
+      dbuser: csidba
+      dbpwd: csidba
+      dbtype: Oracle
+      dbhost: localhost
+      dbname: C8REPORT
+    mail:
+      host: testmailhost
+      sender: administrator
+      senderName: administrator
+      senderPwd: 123456
+
+    hse:
+      host: localhost
+      portNumber: 9200
+      proto: http
+#定时任务配置
+task:
+  #晚上12点，中午12点执行登陆
+  cron: 0 0 0,12 * * ?

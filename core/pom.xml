@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>com.centricsoftware</groupId>
+        <artifactId>plmservice</artifactId>
+        <version>0.0.1-SNAPSHOT</version>
+        <relativePath>../pom.xml</relativePath>
+    </parent>
+
+    <artifactId>core</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+    <packaging>war</packaging>
+
+    <name>core</name>
+    <description>Demo project for Spring Boot</description>
+
+    <properties>
+        <java.version>1.8</java.version>
+
+    </properties>
+
+    <dependencies>
+        <!-- ↓↓↓jsp依赖↓↓↓ -->
+<!--        <dependency>-->
+<!--            <groupId>javax.servlet</groupId>-->
+<!--            <artifactId>javax.servlet-api</artifactId>-->
+<!--            <scope>provided</scope>-->
+<!--        </dependency>-->
+<!--        <dependency>-->
+<!--            <groupId>org.apache.tomcat.embed</groupId>-->
+<!--            <artifactId>tomcat-embed-jasper</artifactId>-->
+<!--            <scope>provided</scope>-->
+<!--        </dependency>-->
+        <!-- ↑↑↑jsp依赖↑↑↑ -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-thymeleaf</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+            <!-- ↓↓↓容器部署war包需要开启↓↓↓-->
+<!--            <exclusions>-->
+<!--                <exclusion>-->
+<!--                    <groupId>org.apache.tomcat.embed</groupId>-->
+<!--                    <artifactId>tomcat-embed-websocket</artifactId>-->
+<!--                </exclusion>-->
+<!--                <exclusion>-->
+<!--                    <groupId>org.springframework.boot</groupId>-->
+<!--                    <artifactId>spring-boot-starter-tomcat</artifactId>-->
+<!--                </exclusion>-->
+<!--            </exclusions>-->
+            <!-- ↑↑↑容器部署war包需要开启↑↑↑-->
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-configuration-processor</artifactId>
+            <optional>true</optional>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-aop</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+            <scope>test</scope>
+            <exclusions>
+                <exclusion>
+                    <groupId>org.junit.vintage</groupId>
+                    <artifactId>junit-vintage-engine</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+        <!--lombok简化代码-->
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <optional>true</optional>
+        </dependency>
+        <!--hutool集成工具包-->
+<!--        <dependency>-->
+<!--            <groupId>cn.hutool</groupId>-->
+<!--            <artifactId>hutool-all</artifactId>-->
+<!--        </dependency>-->
+        <!-- plmservice各个模块功能依赖 -->
+        <dependency>
+            <groupId>com.centricsoftware</groupId>
+            <artifactId>config</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.centricsoftware</groupId>
+            <artifactId>commons</artifactId>
+        </dependency>
+<!--        <dependency>-->
+<!--            <groupId>com.centricsoftware</groupId>-->
+<!--            <artifactId>task</artifactId>-->
+<!--        </dependency>-->
+<!--        <dependency>-->
+<!--            <groupId>com.centricsoftware</groupId>-->
+<!--            <artifactId>redis</artifactId>-->
+<!--        </dependency>-->
+        <dependency>
+            <groupId>com.centricsoftware</groupId>
+            <artifactId>mybatis</artifactId>
+        </dependency>
+<!--        <dependency>-->
+<!--            <groupId>com.centricsoftware</groupId>-->
+<!--            <artifactId>rabbitmq</artifactId>-->
+<!--        </dependency>-->
+<!--        <dependency>-->
+<!--            <groupId>com.centricsoftware</groupId>-->
+<!--            <artifactId>custom</artifactId>-->
+<!--        </dependency>-->
+    </dependencies>
+
+    <build>
+        <finalName>plmservice</finalName>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+<!--                <configuration>-->
+                        <!--指定打包输出目录-->
+<!--                    <outputDirectory>D:\ideaworkspace\SpringbootDev\plmservice</outputDirectory>-->
+<!--                </configuration>-->
+            </plugin>
+        </plugins>
+        <resources>
+            <resource>
+                <directory>src/main/resources</directory>
+                <includes>
+                    <include>**/*.properties</include>
+                    <include>**/*.xml</include>
+                    <include>**/*.yml</include>
+                    <include>**/*.tld</include>
+                    <include>**/*.doc</include>
+                </includes>
+                <filtering>true</filtering>
+            </resource>
+            <resource>
+                <directory>src/main/resources</directory>
+                <includes>
+                    <include>**/*.xlsx</include>
+                    <include>**/*.xls</include>
+                    <include>banner.txt</include>
+                </includes>
+                <excludes>
+                    <exclude>**/*.properties</exclude>
+                    <exclude>**/*.xml</exclude>
+                    <exclude>**/*.tld</exclude>
+                    <exclude>**/*.doc</exclude>
+                </excludes>
+                <filtering>false</filtering>
+            </resource>
+            <resource>
+                <directory>src/main/webapp</directory>
+                <targetPath>META-INF/resources</targetPath>
+            </resource>
+        </resources>
+    </build>
+
+</project>

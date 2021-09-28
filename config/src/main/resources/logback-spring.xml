@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- scan:配置文件如果发生改变，将会重新加载，默认值为true -->
+<configuration scan="true" scanPeriod="10 seconds">
+	<include resource="org/springframework/boot/logging/logback/defaults.xml"/>
+	<!-- 日志文件路径 -->
+	<springProperty  scope="context" name="LOG_HOME"  source="logging.file.path"/>
+	<springProperty  scope="context" name="PROJECT_NAME"  source="spring.application.name"/>
+
+	<!-- 日志的存放目录-->
+	<property name="FILE_NAME_PATTERN" value="${LOG_HOME}/${PROJECT_NAME}-%d{yyyy-MM-dd}.%i.log"/>
+	<property name="TASK_LOG_FILE_NAME_PATTERN" value="${LOG_HOME}/${PROJECT_NAME}-task.%d{yyyy-MM-dd}.%i.log"/>
+	<property name="ERROR_LOG_FILE_NAME_PATTERN" value="${LOG_HOME}/${PROJECT_NAME}-error.%d{yyyy-MM-dd}.%i.log"/>
+	<!-- 日志格式 -->
+	<property name="LOG_PATTERN"
+			  value="[ %-5level] [%date{yyyy-MM-dd HH:mm:ss}] [%thread] %logger{96} [%line] - %msg%n"/>
+	<!-- 日志写入控制台 -->
+	<appender name="console" class="ch.qos.logback.core.ConsoleAppender">
+		<encoder>
+			<pattern>${LOG_PATTERN}</pattern>
+			<!--<charset>utf-8</charset>-->
+		</encoder>
+	</appender>
+	<!-- 日志文件 记录所有级别的日志 -->
+	<appender name="file" class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<append>true</append>
+		<encoder>
+			<pattern>${LOG_PATTERN}</pattern>
+			<charset>utf-8</charset>
+		</encoder>
+
+		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+			<fileNamePattern>${FILE_NAME_PATTERN}</fileNamePattern>
+			<timeBasedFileNamingAndTriggeringPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
+				<maxFileSize>50 MB</maxFileSize>
+			</timeBasedFileNamingAndTriggeringPolicy>
+			<!--最多保留7天log-->
+			<maxHistory>7</maxHistory>
+		</rollingPolicy>
+	</appender>
+	<!-- 日志错误文件-->
+	<appender name="file_error" class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<append>true</append>
+		<encoder>
+			<pattern>${LOG_PATTERN}</pattern>
+			<charset>utf-8</charset>
+		</encoder>
+
+		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+			<fileNamePattern>${ERROR_LOG_FILE_NAME_PATTERN}</fileNamePattern>
+			<timeBasedFileNamingAndTriggeringPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
+				<maxFileSize>50 MB</maxFileSize>
+			</timeBasedFileNamingAndTriggeringPolicy>
+			<!--最多保留30天log-->
+			<maxHistory>30</maxHistory>
+		</rollingPolicy>
+		<filter class="ch.qos.logback.classic.filter.LevelFilter">
+			<level>ERROR</level>
+			<onMatch>ACCEPT</onMatch>
+			<onMismatch>DENY</onMismatch>
+		</filter>
+	</appender>
+
+	<!-- 定时任务日志-->
+	<appender name="task_log" class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<append>true</append>
+		<encoder>
+			<pattern>${LOG_PATTERN}</pattern>
+			<charset>utf-8</charset>
+		</encoder>
+
+		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+			<fileNamePattern>${TASK_LOG_FILE_NAME_PATTERN}</fileNamePattern>
+			<timeBasedFileNamingAndTriggeringPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
+				<maxFileSize>50 MB</maxFileSize>
+			</timeBasedFileNamingAndTriggeringPolicy>
+			<!--最多保留30天log-->
+			<maxHistory>30</maxHistory>
+		</rollingPolicy>
+		<filter class="ch.qos.logback.classic.filter.ThresholdFilter">
+			<level>debug</level>
+		</filter>
+	</appender>
+
+	<springProfile name="dev">
+		<logger name="com.centricsoftware" level="debug"/>
+		<root level="info">
+			<appender-ref ref="console" />
+		</root>
+	</springProfile>
+
+	<springProfile name="test">
+		<logger name="com.centricsoftware.task" level="debug">
+			<appender-ref ref="task_log" />
+		</logger>
+		<root level="info">
+			<appender-ref ref="console" />
+			<appender-ref ref="file" />
+			<appender-ref ref="file_error" />
+			<appender-ref ref="task_log" />
+		</root>
+	</springProfile>
+
+	<springProfile name="prod">
+		<logger name="com.centricsoftware.task" level="debug">
+			<appender-ref ref="task_log" />
+		</logger>
+		<root level="info">
+			<appender-ref ref="console" />
+			<appender-ref ref="file" />
+			<appender-ref ref="file_error" />
+			<appender-ref ref="task_log" />
+		</root>
+	</springProfile>
+</configuration>

@@ -1,0 +1,48 @@
+﻿#######################导出配置###################
+spring:
+  profiles: dev
+
+cs.center.prop:
+  #款式库导出
+  export:
+    style:
+      query:
+      detail: <DETAIL AttributeName="Node Name" Seq="1"/><DETAIL AttributeName="Code" Seq="2" />
+      order: <OrderBy AttributeName="Node Name" Sequence="ASC" />
+      0:
+        name: styleurl
+      1:
+        name: code
+
+
+
+---
+spring:
+  profiles: test
+cs.center.prop:
+  #颜色库导出
+  colorspec:
+    url: http://127.0.0.1:8777/demo/hello
+    count: 50
+    1:
+      name: Code
+      value: Code
+    2:
+      name: Description
+      value: Description
+
+---
+spring:
+  profiles: prod
+cs.center.prop:
+  #颜色库导出
+  colorspec:
+    url: http://127.0.0.1:8777/demo/hello
+    count: 50
+    1:
+      name: Code
+      value: Code
+    2:
+      name: Description
+      value: Description
+

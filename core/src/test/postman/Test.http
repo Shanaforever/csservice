@@ -1,0 +1,103 @@
+GET {{baseUrl}}/test/test99
+Accept: application/json
+
+###
+###获取token
+GET {{baseUrl}}/auth/simpleAuthStr?username=c8admin&password=c8admin
+Accept: application/json
+
+
+###测试需要授权的请求
+POST {{baseUrl}}/test/testAuth
+Accept: application/json
+Authorization: d80bda19bc1403c2aa74ffe7fa0f95862d1e72d741e8db8e39a0b07b0035b961
+
+
+###
+GET {{baseUrl}}/watchService/get/DemoStrategyService1Impl?user=admin&data=testdata
+Content-Type: application/json
+
+###
+POST {{baseUrl}}/uploadController/upload?file=testfile2&beanName=testFileUploadServiceImpl2
+Content-Type: application/json
+
+{}
+
+###
+GET {{baseUrl}}/test/testRequest
+Content-Type: application/json
+
+
+###
+#Rest Api session login
+GET http://192.168.1.144/csi-requesthandler/api/v2/styles/C1010
+Content-Type: application/json
+
+{}
+
+###
+#测试配置文件读取
+POST {{baseUrl}}/test/testProp
+Content-Type: application/json
+
+
+###
+###用户自定义controller
+POST {{baseUrl}}/custom/test
+Content-Type: application/json
+
+{"param": "456"}
+
+###
+POST {{baseUrl}}/watchService/post/DemoStrategyService1Impl
+Content-Type: application/json
+
+
+
+###
+#测试PLM登出
+POST {{baseUrl}}/test/logout
+Content-Type: application/json
+
+
+###
+#测试cookie
+POST {{baseUrl}}/test/testCookie
+Content-Type: application/json
+
+
+###
+
+
+###
+#测试延迟队列
+POST {{baseUrl}}/test/testRabbitMQ
+Content-Type: application/json
+
+{"msg": "test delay message"}
+
+###
+#测试策略转发实现类 DemoStrategyService1Impl DemoStrategyService2Impl demoStrategyServiceImpl
+POST {{baseUrl}}/watchService/post/DemoStrategyService2Impl
+Content-Type: application/json
+
+{"user": "admin","type":"style"}
+
+###
+#testParam request
+POST {{baseUrl}}/test/testParam
+Content-Type: application/json
+
+{
+  "test1": "testjson" ,
+  "type": [{"a": "1"}]
+}
+
+###
+#testRequest
+GET {{baseUrl}}/test/testRequest
+Content-Type: application/json
+
+{"test": "testjson"}
+
+###

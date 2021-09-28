@@ -1,0 +1,30 @@
+##################数据库配置##############
+##############开发环境####################
+spring:
+  profiles: dev
+  #数据库配置
+  datasource:
+    url: jdbc:sqlserver://localhost:1433;DatabaseName=CSIWECHAT
+    username: sa
+    password: sa@114
+
+---
+##############测试环境####################
+spring:
+  profiles: test
+  #数据库配置
+  datasource:
+    url: jdbc:sqlserver://localhost:1433;DatabaseName=CSIWECHAT
+    username: CSIWECHAT
+    password: CSIWECHAT
+---
+##############正试环境####################
+spring:
+  profiles: prod
+  #数据库配置
+  datasource:
+    url: jdbc:sqlserver://localhost:1433;DatabaseName=CSIWECHAT
+    username: CSIWECHAT
+    password: CSIWECHAT
+
+

@@ -1,0 +1,233 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>com.centricsoftware</groupId>
+        <artifactId>plmservice</artifactId>
+        <version>0.0.1-SNAPSHOT</version>
+        <relativePath>../pom.xml</relativePath>
+    </parent>
+
+    <artifactId>commons</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+    <packaging>jar</packaging>
+    <description>Demo project for Spring Boot</description>
+
+    <properties>
+        <java.version>1.8</java.version>
+        <pi-tools.version>1.0.0</pi-tools.version>
+        <pi-module-export.version>1.0.0</pi-module-export.version>
+        <pi-base.version>1.0.0</pi-base.version>
+        <st4.version>4.1</st4.version>
+        <elasticsearch.version>7.0.1</elasticsearch.version>
+        <jxl.version>2.6.12</jxl.version>
+        <jxl.core.version>1.0.3</jxl.core.version>
+        <poi.version>3.17</poi.version>
+        <!--使用用hutool excel方法需要poi版本大于4.1.2-->
+<!--        <poi.version>4.1.2</poi.version>-->
+        <commons-net.version>3.6</commons-net.version>
+        <mail.version>1.4.7</mail.version>
+        <jug.version>2.0.0</jug.version>
+        <jcifs.version>1.3.17</jcifs.version>
+        <bcprov-jdk15on.version>1.56</bcprov-jdk15on.version>
+        <velocity-engine-core.version>2.0</velocity-engine-core.version>
+        <jsr311-api.version>1.1.1</jsr311-api.version>
+        <itextpdf.version>5.5.13</itextpdf.version>
+        <itext-asian.version>5.2.0</itext-asian.version>
+        <aspose-cells.version>8.5.2</aspose-cells.version>
+        <microsoft.sqlserver.version>6.0.8112</microsoft.sqlserver.version>
+        <zxing.core.version>3.4.0</zxing.core.version>
+        <jettson.version>1.3.8</jettson.version>
+    </properties>
+
+    <dependencies>
+        <!--hse start-->
+        <dependency>
+            <groupId>org.springframework.data</groupId>
+            <artifactId>spring-data-elasticsearch</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-lang3</artifactId>
+        </dependency>
+        <!--hse end-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter</artifactId>
+            <scope>provided</scope>
+<!--            <optional>true</optional>-->
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+            <optional>true</optional>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-configuration-processor</artifactId>
+            <optional>true</optional>
+        </dependency>
+        <dependency>
+            <groupId>com.centricsoftware</groupId>
+            <artifactId>pi-tools</artifactId>
+            <version>${pi-tools.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.centricsoftware</groupId>
+            <artifactId>pi-module-export</artifactId>
+            <version>${pi-module-export.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.centricsoftware</groupId>
+            <artifactId>pi-base</artifactId>
+            <version>${pi-base.version}</version>
+        </dependency>
+        <!--pi-base依赖 -->
+        <dependency>
+            <groupId>org.bouncycastle</groupId>
+            <artifactId>bcprov-jdk15on</artifactId>
+            <version>${bcprov-jdk15on.version}</version>
+        </dependency>
+        <!-- pi-base依赖 -->
+        <dependency>
+            <groupId>org.apache.velocity</groupId>
+            <artifactId>velocity-engine-core</artifactId>
+            <version>${velocity-engine-core.version}</version>
+        </dependency>
+        <!-- native export依赖 -->
+        <dependency>
+            <groupId>javax.ws.rs</groupId>
+            <artifactId>jsr311-api</artifactId>
+            <version>${jsr311-api.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.centricsoftware</groupId>
+            <artifactId>config</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <optional>true</optional>
+        </dependency>
+        <!-- 字符串模板 -->
+        <dependency>
+            <groupId>org.antlr</groupId>
+            <artifactId>ST4</artifactId>
+            <version>${st4.version}</version>
+        </dependency>
+<!--        <dependency>-->
+<!--            <groupId>cn.hutool</groupId>-->
+<!--            <artifactId>hutool-all</artifactId>-->
+<!--        </dependency>-->
+        <dependency>
+            <groupId>com.oracle</groupId>
+            <artifactId>ojdbc6</artifactId>
+        </dependency>
+        <!--Excel工具类相关依赖 jxl poi-->
+        <dependency>
+            <groupId>net.sourceforge.jexcelapi</groupId>
+            <artifactId>jxl</artifactId>
+            <version>${jxl.version}</version>
+        </dependency>
+        <!--Excel工具类相关依赖 jxl poi-->
+        <dependency>
+            <groupId>org.apache.poi</groupId>
+            <artifactId>poi</artifactId>
+            <version>${poi.version}</version>
+        </dependency>
+        <!--Excel工具类相关依赖 jxl poi-->
+        <dependency>
+            <groupId>org.apache.poi</groupId>
+            <artifactId>poi-ooxml</artifactId>
+            <version>${poi.version}</version>
+        </dependency>
+        <!--Excel工具类相关依赖 jxl poi-->
+        <dependency>
+            <groupId>net.sf.jxls</groupId>
+            <artifactId>jxls-core</artifactId>
+            <version>${jxl.core.version}</version>
+        </dependency>
+        <!-- FtpUtil相关依赖 -->
+        <dependency>
+            <groupId>commons-net</groupId>
+            <artifactId>commons-net</artifactId>
+            <version>${commons-net.version}</version>
+        </dependency>
+        <!-- json相关，spring推荐使用jackson，这里不在推荐使用fastjson，目前阿里巴巴对fastjson类库的bug修复速度并不尽如人意而且
+         经常爆发出内存溢出bug-->
+        <dependency>
+            <groupId>org.codehaus.jettison</groupId>
+            <artifactId>jettison</artifactId>
+            <version>${jettson.version}</version>
+        </dependency>
+        <!--MailUtil 相关依赖 -->
+        <dependency>
+            <groupId>javax.mail</groupId>
+            <artifactId>mail</artifactId>
+            <version>${mail.version}</version>
+        </dependency>
+        <!--SMBFileUtil 相关依赖-->
+        <dependency>
+            <groupId>jcifs</groupId>
+            <artifactId>jcifs</artifactId>
+            <version>${jcifs.version}</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>javax.servlet</groupId>
+                    <artifactId>servlet-api</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+        <!-- pdf 依赖 -->
+        <dependency>
+            <groupId>com.itextpdf</groupId>
+            <artifactId>itextpdf</artifactId>
+            <version>${itextpdf.version}</version>
+        </dependency>
+        <!-- pdf 依赖 -->
+        <dependency>
+            <groupId>com.itextpdf</groupId>
+            <artifactId>itext-asian</artifactId>
+            <version>${itext-asian.version}</version>
+        </dependency>
+        <!-- excel转pdf -->
+<!--        <dependency>-->
+<!--            <groupId>com.aspose</groupId>-->
+<!--            <artifactId>aspose-cells</artifactId>-->
+<!--            <version>${aspose-cells.version}</version>-->
+<!--        </dependency>-->
+        <!-- sqlserver -->
+        <dependency>
+            <groupId>com.microsoft.sqlserver</groupId>
+            <artifactId>mssql-jdbc</artifactId>
+        </dependency>
+        <!-- 谷歌二维码依赖 -->
+        <dependency>
+            <groupId>com.google.zxing</groupId>
+            <artifactId>core</artifactId>
+            <version>${zxing.core.version}</version>
+        </dependency>
+    </dependencies>
+    <repositories>
+        <repository>
+            <id>AsposeJavaAPI</id>
+            <name>Aspose Java API</name>
+            <url>https://repository.aspose.com/repo/</url>
+        </repository>
+    </repositories>
+    <build>
+        <finalName>plmservice-commons</finalName>
+        <resources>
+            <resource>
+                <directory>src/main/resources</directory>
+                <includes>
+                    <include>license.xml</include>
+                </includes>
+                <filtering>true</filtering>
+            </resource>
+        </resources>
+    </build>
+
+</project>
