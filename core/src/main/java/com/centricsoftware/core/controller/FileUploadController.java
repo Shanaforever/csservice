@@ -1,6 +1,5 @@
 package com.centricsoftware.core.controller;
 
-import cn.hutool.core.lang.Dict;
 import cn.hutool.poi.excel.ExcelReader;
 import cn.hutool.poi.excel.ExcelUtil;
 import com.centricsoftware.commons.dto.ResEntity;
@@ -9,8 +8,6 @@ import com.centricsoftware.commons.em.ResCode;
 import com.centricsoftware.commons.exception.BaseException;
 import com.centricsoftware.commons.utils.SpringUtil;
 import com.centricsoftware.core.service.FileUploadService;
-import com.centricsoftware.core.service.UploadServiceFunctional;
-import com.centricsoftware.core.service.impl.TestFileUploadServiceImplFunction1;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
